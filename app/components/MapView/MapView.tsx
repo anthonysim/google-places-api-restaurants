@@ -1,15 +1,12 @@
 "use client";
 
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  InfoWindow,
-} from "@vis.gl/react-google-maps";
-import { useEffect, useState } from "react";
+import { APIProvider, Map, InfoWindow } from "@vis.gl/react-google-maps";
+import { useState } from "react";
 
 import { useMapContext } from "@/app/context/MapContext";
+import { useRemoveInfoWindowPointer } from "@/app/hooks/useRemoveInfoWindowPointer";
 
+import { Markers } from "./Markers";
 import Card from "../ui/Card";
 
 export default function MapView() {
@@ -20,26 +17,7 @@ export default function MapView() {
 
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
 
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = `
-    .gm-style-iw-d {
-      overflow: hidden !important;
-    }
-    .gm-style-iw-chr {
-      display: none !important;
-    }
-
-    .gm-style-iw-tc::after {
-      display: none !important;
-    }
-  `;
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
+  useRemoveInfoWindowPointer();
 
   const { setEffectiveCenter, placesResults } = useMapContext();
 
@@ -74,22 +52,7 @@ export default function MapView() {
           style={{ width: "100%", height: "100%" }}
         >
           {/* Markers for places */}
-          {placesResults.map((place) => {
-            const loc = place.geometry?.location;
-            if (!loc) return null;
-
-            const lat = typeof loc.lat === "function" ? loc.lat() : loc.lat;
-            const lng = typeof loc.lng === "function" ? loc.lng() : loc.lng;
-
-            return (
-              <AdvancedMarker
-                key={place.place_id}
-                position={{ lat, lng }}
-                title={place.name}
-                onClick={() => setSelectedPlaceId(place.place_id ?? null)}
-              />
-            );
-          })}
+          {<Markers places={placesResults} onClick={setSelectedPlaceId} />}
 
           {/* InfoWindow with your custom Card */}
           {selectedPlace &&

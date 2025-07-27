@@ -1,4 +1,4 @@
-export interface SearchBarProps {
+export interface ISearchBarProps {
   placeholder: string;
   value: string;
   name: string;

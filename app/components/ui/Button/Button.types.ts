@@ -1,6 +1,4 @@
-import React from "react";
-
-export interface ButtonProps {
+export interface IButtonProps {
   children: React.ReactNode;
   height?: number;
   width?: number;

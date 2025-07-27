@@ -1,4 +1,4 @@
-export interface CardProps {
+export interface ICardProps {
   title: string;
   description: string;
   placeId: string;

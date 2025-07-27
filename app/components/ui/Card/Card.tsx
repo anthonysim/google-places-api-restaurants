@@ -7,7 +7,7 @@ import {
   isBookmarked,
 } from "@/app/utils/bookmarks";
 
-import type { CardProps } from "./Card.types";
+import type { ICardProps } from "./Card.types";
 
 export default function Card({
   title,
@@ -19,7 +19,7 @@ export default function Card({
   onClick,
   placeId,
   type = "button",
-}: CardProps) {
+}: ICardProps) {
   const baseStyles =
     "w-[432px] h-auto bg-white rounded-[16px]  p-4 text-left cursor-pointer";
 

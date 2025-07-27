@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { ButtonProps } from "./Button.types";
+import type { IButtonProps } from "./Button.types";
 
 export default function Button({
   children,
@@ -11,7 +11,7 @@ export default function Button({
   width = 17,
   type = "button",
   className = "",
-}: ButtonProps) {
+}: IButtonProps) {
   const baseStyles =
     "flex items-center gap-[12px] bg-[#2C5601] w-[108px] h-[42px] opacity-100 absolute top-[740px] rounded-full px-[24px] py-[12px] text-white cursor-pointer";
 

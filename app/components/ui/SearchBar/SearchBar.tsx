@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { SearchBarProps } from "./SearchBar.types";
+import type { ISearchBarProps } from "./SearchBar.types";
 
 export default function SearchBar({
   iconTitle,
@@ -10,7 +10,7 @@ export default function SearchBar({
   name,
   placeholder = "",
   classNames = "",
-}: SearchBarProps) {
+}: ISearchBarProps) {
   const baseStyles = `
     w-[353px] h-8
     rounded-[40px] p-3

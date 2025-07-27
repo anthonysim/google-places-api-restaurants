@@ -8,17 +8,18 @@ import { useMapContext } from "./context/MapContext";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
-  const { isShowMapButton } = useMapContext();
+  const { isShowMapButton, setIsShowMapButton } = useMapContext();
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      setIsShowMapButton(false);
     };
 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [setIsShowMapButton]);
 
   // Mobile
   if (isMobile) {
