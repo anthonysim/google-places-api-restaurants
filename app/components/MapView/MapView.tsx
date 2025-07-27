@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   APIProvider,
   Map,
@@ -17,6 +17,24 @@ export default function MapView() {
   });
 
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+    .gm-style-iw-d {
+      overflow: hidden !important;
+    }
+    .gm-style-iw-chr {
+      display: none !important;
+    }
+  `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const { setEffectiveCenter, placesResults } = useMapContext();
 
   const handleIdle = (event: { map: google.maps.Map }) => {
