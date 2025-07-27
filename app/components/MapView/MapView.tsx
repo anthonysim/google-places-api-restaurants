@@ -73,9 +73,6 @@ export default function MapView() {
           disableDefaultUI={false}
           style={{ width: "100%", height: "100%" }}
         >
-          {/* Marker for current center */}
-          <AdvancedMarker position={center} />
-
           {/* Markers for places */}
           {placesResults.map((place) => {
             const loc = place.geometry?.location;

@@ -9,7 +9,6 @@ import {
 
 import type { CardProps } from "./Card.types";
 
-
 export default function Card({
   title,
   description,

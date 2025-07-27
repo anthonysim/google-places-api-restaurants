@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-import CardView from "./components/CardView";
+import Cards from "./components/Cards";
 import MapView from "./components/MapView";
 import { useMapContext } from "./context/MapContext";
 
@@ -24,7 +24,7 @@ export default function Home() {
   if (isMobile) {
     return isShowMapButton ? (
       <div className="h-screen w-screen bg-gray-100 overflow-y-auto flex justify-center">
-        <CardView />
+        <Cards />
       </div>
     ) : (
       <div className="h-screen w-screen">
@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div className="flex h-screen overflow-hidden">
       <div className=" md:w-1/4 bg-gray-100 overflow-y-auto flex justify-center">
-        <CardView />
+        <Cards />
       </div>
       <div className="md:w-3/4">
         <MapView />
