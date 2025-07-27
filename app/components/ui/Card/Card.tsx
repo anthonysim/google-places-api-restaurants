@@ -1,6 +1,11 @@
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { CardProps } from "./Card.types";
-import { addBookmark } from "@/app/utils/addBookmark";
+import {
+  addBookmark,
+  removeBookmark,
+  isBookmarked,
+} from "@/app/utils/bookmarks";
 
 export default function Card({
   title,
@@ -16,12 +21,28 @@ export default function Card({
   const baseStyles =
     "w-[432px] h-auto bg-white rounded-[16px] shadow-[0px_8px_16px_-1px_#42526E33] p-4 text-left cursor-pointer";
 
-  const cardHander = (
+  const [bookmarked, setBookmarked] = useState(false);
+
+  useEffect(() => {
+    if (placeId && isBookmarked(placeId)) {
+      setBookmarked(true);
+    }
+  }, [placeId]);
+
+  const cardHandler = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>,
     placeId: string
   ) => {
     e.preventDefault();
-    addBookmark(placeId);
+    const currentlyBookmarked = isBookmarked(placeId);
+
+    if (currentlyBookmarked) {
+      removeBookmark(placeId);
+      setBookmarked(false);
+    } else {
+      addBookmark(placeId);
+      setBookmarked(true);
+    }
   };
 
   return (
@@ -63,14 +84,15 @@ export default function Card({
             {description}
           </div>
         </div>
+
         <Image
-          src="/bookmark-resting.svg"
-          alt="AllTrails at Lunch"
-          title="AllTrails at Lunch"
+          src={bookmarked ? "/bookmark-saved.svg" : "/bookmark-resting.svg"}
+          alt="Bookmark"
+          title="Bookmark"
           width={24}
           height={24}
           priority
-          onClick={(e) => cardHander(e, placeId)}
+          onClick={(e) => cardHandler(e, placeId)}
         />
       </div>
     </button>
