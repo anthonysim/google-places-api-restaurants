@@ -29,6 +29,10 @@ export default function MapView() {
     .gm-style-iw-chr {
       display: none !important;
     }
+
+    .gm-style-iw-tc::after {
+      display: none !important;
+    }
   `;
     document.head.appendChild(style);
 
