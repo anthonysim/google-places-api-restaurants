@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import type { SearchBarProps } from "./SearchBar.types";
 
 export default function SearchBar({

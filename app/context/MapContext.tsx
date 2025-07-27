@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+
 import type { MapContextType } from "./MapContext.types";
 
 export const MapContext = createContext<MapContextType | undefined>(undefined);

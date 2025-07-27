@@ -1,6 +1,8 @@
 import React from "react";
-import Card from "../ui/Card";
+
 import { useMapContext } from "@/app/context/MapContext";
+
+import Card from "../ui/Card";
 
 export default function CardView() {
   const { placesResults } = useMapContext();

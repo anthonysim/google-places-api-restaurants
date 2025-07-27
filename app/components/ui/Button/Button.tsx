@@ -1,5 +1,6 @@
-import type { ButtonProps } from "./Button.types";
 import Image from "next/image";
+
+import type { ButtonProps } from "./Button.types";
 
 export default function Button({
   children,

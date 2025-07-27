@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   APIProvider,
   Map,
   AdvancedMarker,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
+import { useEffect, useState } from "react";
+
 import { useMapContext } from "@/app/context/MapContext";
+
 import Card from "../ui/Card";
 
 export default function MapView() {

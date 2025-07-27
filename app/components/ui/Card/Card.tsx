@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import type { CardProps } from "./Card.types";
+import { useEffect, useState } from "react";
+
 import {
   addBookmark,
   removeBookmark,
   isBookmarked,
 } from "@/app/utils/bookmarks";
+
+import type { CardProps } from "./Card.types";
+
 
 export default function Card({
   title,

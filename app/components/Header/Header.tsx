@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import throttle from "lodash/throttle";
 import Image from "next/image";
-import SearchBar from "../ui/SearchBar";
-import { useMapContext } from "@/app/context/MapContext";
+import { useState, useMemo } from "react";
 
+
+import { useMapContext } from "@/app/context/MapContext";
 import { fetchRestaurants } from "@/app/utils/fetchRestaurants";
+
+import SearchBar from "../ui/SearchBar";
 
 export default function Header() {
   const [userInput, setUserInput] = useState("");

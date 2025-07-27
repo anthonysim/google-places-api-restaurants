@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useMapContext } from "./context/MapContext";
+
 import CardView from "./components/CardView";
 import MapView from "./components/MapView";
+import { useMapContext } from "./context/MapContext";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);

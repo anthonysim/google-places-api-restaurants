@@ -1,10 +1,10 @@
 "use client";
 
-import { useMapContext } from "./context/MapContext";
 import Header from "./components/Header";
 import Button from "./components/ui/Button";
-import { MobileButton } from "./types/enums";
+import { useMapContext } from "./context/MapContext";
 import { MapProvider } from "./context/MapContext";
+import { MobileButton } from "./types/enums";
 import "./globals.css";
 
 export default function RootLayout({
