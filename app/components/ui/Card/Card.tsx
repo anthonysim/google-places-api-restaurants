@@ -27,7 +27,7 @@ export default function Card({
               src={imageUrl}
               alt={imageAlt}
               fill
-              sizes="10px"
+              sizes="96px"
               className="object-cover"
             />
           </div>
