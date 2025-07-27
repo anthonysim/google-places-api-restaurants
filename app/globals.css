@@ -12,5 +12,5 @@ body {
 }
 
 .gm-style-iw-chr {
-  display: none;
+  display: none !important;
 }
