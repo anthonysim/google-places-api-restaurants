@@ -11,6 +11,7 @@ export default function CardView() {
         placesResults.map((item) => (
           <Card
             key={item.place_id || item.name}
+            placeId={item.place_id || item.name}
             title={item.name || ""}
             description={item.formatted_address || ""}
             rating={Number(item.rating)}

@@ -1,6 +1,7 @@
 export interface CardProps {
   title: string;
   description: string;
+  placeId: string;
   rating: number;
   classNames?: string;
   imageUrl?: string;

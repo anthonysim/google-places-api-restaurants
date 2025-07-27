@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CardProps } from "./Card.types";
+import { addBookmark } from "@/app/utils/addBookmark";
 
 export default function Card({
   title,
@@ -9,10 +10,19 @@ export default function Card({
   imageUrl,
   imageAlt = "Card image",
   onClick,
+  placeId,
   type = "button",
 }: CardProps) {
   const baseStyles =
     "w-[432px] h-auto bg-white rounded-[16px] shadow-[0px_8px_16px_-1px_#42526E33] p-4 text-left cursor-pointer";
+
+  const cardHander = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>,
+    placeId: string
+  ) => {
+    e.preventDefault();
+    addBookmark(placeId);
+  };
 
   return (
     <button
@@ -60,7 +70,7 @@ export default function Card({
           width={24}
           height={24}
           priority
-          onClick={() => console.log("bookmark")}
+          onClick={(e) => cardHander(e, placeId)}
         />
       </div>
     </button>
