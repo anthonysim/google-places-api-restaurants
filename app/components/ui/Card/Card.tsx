@@ -19,7 +19,7 @@ export default function Card({
   type = "button",
 }: CardProps) {
   const baseStyles =
-    "w-[432px] h-auto bg-white rounded-[16px] shadow-[0px_8px_16px_-1px_#42526E33] p-4 text-left cursor-pointer";
+    "w-[432px] h-auto bg-white rounded-[16px]  p-4 text-left cursor-pointer";
 
   const [bookmarked, setBookmarked] = useState(false);
 

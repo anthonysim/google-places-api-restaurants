@@ -90,12 +90,17 @@ export default function MapView() {
                   <div>
                     <Card
                       title={selectedPlace.name || "Unknown"}
+                      placeId={selectedPlace.place_id || selectedPlace.name}
                       description={
                         selectedPlace.formatted_address ||
                         "No address available"
                       }
                       rating={Number(selectedPlace.rating)}
-                      imageUrl="/placeholder-image.svg"
+                      imageUrl={
+                        selectedPlace.photos?.[0]?.photo_reference
+                          ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${selectedPlace.photos?.[0].photo_reference}&key=${process.env.NEXT_PUBLIC_API_KEY}`
+                          : "/placeholder-image.svg"
+                      }
                     />
                   </div>
                 </InfoWindow>

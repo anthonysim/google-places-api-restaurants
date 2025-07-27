@@ -21,7 +21,7 @@ export default function CardView() {
                 : "/placeholder-image.svg"
             }
             imageAlt={item.name || "Photo"}
-            classNames="w-full max-w-[432px]"
+            classNames="w-full max-w-[432px] border-transparent border-2 shadow-[0px_8px_16px_-1px_#42526E33]"
           />
         ))}
     </div>
