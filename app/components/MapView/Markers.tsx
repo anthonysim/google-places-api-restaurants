@@ -3,7 +3,7 @@ import { AdvancedMarker } from "@vis.gl/react-google-maps";
 import { IMarkersProps } from "@/app/types/types";
 
 export function Markers({ places, onClick }: IMarkersProps) {
-  return places.map((place) => {
+  return places?.map((place) => {
     const loc = place.geometry?.location;
     if (!loc) return null;
 

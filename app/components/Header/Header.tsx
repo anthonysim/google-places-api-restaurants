@@ -16,6 +16,7 @@ export default function Header() {
   const throttledUpdate = useMemo(() => {
     return throttle(
       (value: string) => {
+        if (value === "") return;
         if (effectiveCenter?.lat && effectiveCenter?.lng) {
           const request = {
             query: value,
@@ -29,7 +30,7 @@ export default function Header() {
           })();
         }
       },
-      1500,
+      1250,
       { leading: false, trailing: true },
     );
   }, [effectiveCenter?.lat, effectiveCenter?.lng, setPlacesResults]);
@@ -37,6 +38,8 @@ export default function Header() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setUserInput(value);
+
+    console.log(value);
     throttledUpdate(value);
   };
 

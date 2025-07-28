@@ -31,7 +31,7 @@ export default function MapView() {
     setEffectiveCenter(latLng);
   };
 
-  const selectedPlace = placesResults.find(
+  const selectedPlace = placesResults?.find(
     (place) => place.place_id === selectedPlaceId,
   );
 

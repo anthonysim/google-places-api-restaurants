@@ -82,7 +82,7 @@ export default function Card({
               height={16}
               priority
             />
-            <span>{rating}</span>
+            <span>{rating || ""}</span>
             <span>&middot; (reviews)</span>
           </div>
           <div className="mt-2 line-clamp-2 text-sm leading-[150%] tracking-[0px] text-gray-600">
