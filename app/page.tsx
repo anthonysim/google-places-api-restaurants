@@ -24,7 +24,7 @@ export default function Home() {
   // Mobile
   if (isMobile) {
     return isShowMapButton ? (
-      <div className="h-screen w-screen bg-gray-100 overflow-y-auto flex justify-center">
+      <div className="flex h-screen w-screen justify-center overflow-y-auto bg-gray-100">
         <Cards />
       </div>
     ) : (
@@ -37,7 +37,7 @@ export default function Home() {
   // Desktop
   return (
     <div className="flex h-screen overflow-hidden">
-      <div className=" md:w-1/4 bg-gray-100 overflow-y-auto flex justify-center">
+      <div className="flex justify-center overflow-y-auto bg-gray-100 md:w-1/4">
         <Cards />
       </div>
       <div className="md:w-3/4">

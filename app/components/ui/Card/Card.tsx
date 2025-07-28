@@ -33,7 +33,7 @@ export default function Card({
 
   const cardHandler = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>,
-    placeId: string
+    placeId: string,
   ) => {
     e.preventDefault();
     const currentlyBookmarked = isBookmarked(placeId);
@@ -55,7 +55,7 @@ export default function Card({
     >
       <div className="flex items-start gap-4 p-0">
         {imageUrl && (
-          <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+          <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg">
             <Image
               src={imageUrl}
               alt={imageAlt}
@@ -67,10 +67,10 @@ export default function Card({
         )}
 
         <div className="flex flex-col justify-between text-left">
-          <div className="font-bold text-base leading-[150%] tracking-[0px] line-clamp-1">
+          <div className="line-clamp-1 text-base leading-[150%] font-bold tracking-[0px]">
             {title}
           </div>
-          <div className="flex items-center text-sm text-gray-600 gap-1 mt-1">
+          <div className="mt-1 flex items-center gap-1 text-sm text-gray-600">
             <Image
               src="/star.svg"
               alt="star"
@@ -82,7 +82,7 @@ export default function Card({
             <span>{rating}</span>
             <span>&middot; (reviews)</span>
           </div>
-          <div className="mt-2 text-sm leading-[150%] tracking-[0px] line-clamp-2 text-gray-600">
+          <div className="mt-2 line-clamp-2 text-sm leading-[150%] tracking-[0px] text-gray-600">
             {description}
           </div>
         </div>

@@ -32,7 +32,7 @@ export default function SearchBar({
           alt={iconAlt}
           width={16}
           height={16}
-          className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+          className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2"
           priority
         />
       )}

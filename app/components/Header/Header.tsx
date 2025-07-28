@@ -4,7 +4,6 @@ import throttle from "lodash/throttle";
 import Image from "next/image";
 import { useState, useMemo } from "react";
 
-
 import { useMapContext } from "@/app/context/MapContext";
 import { fetchRestaurants } from "@/app/utils/fetchRestaurants";
 
@@ -31,7 +30,7 @@ export default function Header() {
         }
       },
       1500,
-      { leading: false, trailing: true }
+      { leading: false, trailing: true },
     );
   }, [effectiveCenter?.lat, effectiveCenter?.lng, setPlacesResults]);
 
@@ -42,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <div className="flex flex-col h-16 mx-auto md:flex-row justify-center items-center px-8 m-4 md:m-0">
+    <div className="m-4 mx-auto flex h-16 flex-col items-center justify-center px-8 md:m-0 md:flex-row">
       {/* Logo on the left */}
       <div className="flex-shrink-0">
         <Image
@@ -56,7 +55,7 @@ export default function Header() {
       </div>
 
       {/* Search input on the right */}
-      <div className="relative w-[353px] h-8 md:ml-auto mt-4 md:mt-0">
+      <div className="relative mt-4 h-8 w-[353px] md:mt-0 md:ml-auto">
         <SearchBar
           iconTitle="/search.svg"
           iconAlt="search icon"

@@ -35,11 +35,11 @@ export default function MapView() {
   };
 
   const selectedPlace = placesResults.find(
-    (place) => place.place_id === selectedPlaceId
+    (place) => place.place_id === selectedPlaceId,
   );
 
   return (
-    <div className="w-full h-full relative z-0">
+    <div className="relative z-0 h-full w-full">
       <APIProvider apiKey={process.env.NEXT_PUBLIC_API_KEY!}>
         <Map
           defaultCenter={center}

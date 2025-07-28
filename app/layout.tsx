@@ -29,7 +29,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
       <Header />
 
       {children}
-      <div className="fixed bottom-20 inset-x-0 flex justify-center z-50 md:hidden">
+      <div className="fixed inset-x-0 bottom-20 z-50 flex justify-center md:hidden">
         <Button
           imageUrl={
             isShowMapButton ? MobileButton.MapImage : MobileButton.ListImage

@@ -13,7 +13,7 @@ export default function Button({
   className = "",
 }: IButtonProps) {
   const baseStyles =
-    "flex items-center gap-[12px] bg-[#2C5601] w-[108px] h-[42px] opacity-100  rounded-full px-[24px] py-[12px] text-white cursor-pointer";
+    "cursor-pointer items-center gap-[12px] bg-[#2C5601] w-[108px] h-[42px] opacity-100  rounded-full px-[24px] py-[12px] text-white flex";
 
   return (
     <button
