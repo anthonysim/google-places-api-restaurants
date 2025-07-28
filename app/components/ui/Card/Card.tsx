@@ -89,17 +89,17 @@ export default function Card({
             {description}
           </div>
         </div>
-        <div className="ml-auto">
-          <Image
-            src={bookmarked ? "/bookmark-saved.svg" : "/bookmark-resting.svg"}
-            alt="Bookmark"
-            title="Bookmark"
-            width={24}
-            height={24}
-            priority
-            onClick={(e) => cardHandler(e, placeId)}
-          />
-        </div>
+
+        <Image
+          src={bookmarked ? "/bookmark-saved.svg" : "/bookmark-resting.svg"}
+          alt="Bookmark"
+          title="Bookmark"
+          width={24}
+          height={24}
+          priority
+          onClick={(e) => cardHandler(e, placeId)}
+          className="ml-auto"
+        />
       </div>
     </button>
   );
