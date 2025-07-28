@@ -68,7 +68,7 @@ export default function MapView() {
                 <InfoWindow
                   className="border-transparent"
                   position={{
-                    lat: lat + 0.01,
+                    lat: lat + 0.002,
                     lng: lng,
                   }}
                   onCloseClick={() => setSelectedPlaceId(null)}
