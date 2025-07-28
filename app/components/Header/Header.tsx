@@ -41,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <div className="m-4 mx-auto flex h-16 flex-col items-center justify-center px-8 md:m-0 md:flex-row">
+    <div className="sticky top-0 z-50 m-4 mx-auto flex h-16 flex-col items-center justify-center bg-white px-8 shadow md:m-0 md:flex-row">
       {/* Logo on the left */}
       <div className="flex-shrink-0">
         <Image

@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import Cards from "./components/Cards";
 import MapView from "./components/MapView";
 import { useMapContext } from "./context/MapContext";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-  const { isShowMapButton, setIsShowMapButton } = useMapContext();
+  const { isShowMapButton, setIsShowMapButton, isMobile, setIsMobile } =
+    useMapContext();
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,7 +19,7 @@ export default function Home() {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [setIsShowMapButton]);
+  }, [setIsShowMapButton, setIsMobile]);
 
   // Mobile
   if (isMobile) {

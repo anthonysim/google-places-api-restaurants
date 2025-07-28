@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { useMapContext } from "@/app/context/MapContext";
 import {
   addBookmark,
   removeBookmark,
@@ -47,6 +48,8 @@ export default function Card({
     }
   };
 
+  const { isMobile } = useMapContext();
+
   return (
     <button
       type={type}
@@ -54,7 +57,7 @@ export default function Card({
       className={`${baseStyles} ${classNames}`}
     >
       <div className="flex items-start gap-4 p-0">
-        {imageUrl && (
+        {!isMobile && imageUrl && (
           <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg">
             <Image
               src={imageUrl}

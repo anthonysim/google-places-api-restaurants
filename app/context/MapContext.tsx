@@ -12,6 +12,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     google.maps.places.PlaceResult[]
   >([]);
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   return (
     <MapContext.Provider
@@ -24,6 +25,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
         setPlacesResults,
         selectedPlaceId,
         setSelectedPlaceId,
+        isMobile,
+        setIsMobile,
       }}
     >
       {children}

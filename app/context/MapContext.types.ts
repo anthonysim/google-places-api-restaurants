@@ -16,4 +16,7 @@ export type MapContextType = {
 
   selectedPlaceId: string | null;
   setSelectedPlaceId: Dispatch<SetStateAction<string | null>>;
+
+  isMobile: boolean;
+  setIsMobile: Dispatch<SetStateAction<boolean>>;
 };
