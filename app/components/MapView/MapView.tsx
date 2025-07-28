@@ -1,9 +1,11 @@
 "use client";
 
 import { APIProvider, Map, InfoWindow } from "@vis.gl/react-google-maps";
+import { useState } from "react";
 
 import { useMapContext } from "@/app/context/MapContext";
 import { useRemoveInfoWindowPointer } from "@/app/hooks/useRemoveInfoWindowPointer";
+import { adjustLatByZoom } from "@/app/utils/adjustLayByZoom";
 import { getImageUrl } from "@/app/utils/getImageUrl";
 
 import { Markers } from "./Markers";
@@ -19,9 +21,14 @@ export default function MapView() {
     placesResults,
   } = useMapContext();
 
+  const [zoomLevel, setZoomLevel] = useState<number>(15);
+
   const handleIdle = (event: { map: google.maps.Map }) => {
-    const mapCenter = event.map.getCenter();
-    if (!mapCenter) return;
+    const map = event.map;
+    const mapCenter = map.getCenter();
+    const zoom = map.getZoom();
+
+    if (!mapCenter || zoom === undefined) return;
 
     const latLng = {
       lat: mapCenter.lat(),
@@ -29,6 +36,7 @@ export default function MapView() {
     };
 
     setEffectiveCenter(latLng);
+    setZoomLevel(zoom);
   };
 
   const selectedPlace = placesResults?.find(
@@ -68,7 +76,7 @@ export default function MapView() {
                 <InfoWindow
                   className="border-transparent"
                   position={{
-                    lat: lat + 0.002,
+                    lat: adjustLatByZoom(lat, zoomLevel),
                     lng: lng,
                   }}
                   onCloseClick={() => setSelectedPlaceId(null)}
