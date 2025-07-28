@@ -12,7 +12,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="overflow-hidden">
+      <body>
         <MapProvider>
           <LayoutContent>{children}</LayoutContent>
         </MapProvider>
