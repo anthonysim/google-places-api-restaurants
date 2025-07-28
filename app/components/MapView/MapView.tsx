@@ -1,7 +1,6 @@
 "use client";
 
 import { APIProvider, Map, InfoWindow } from "@vis.gl/react-google-maps";
-import { useState } from "react";
 
 import { useMapContext } from "@/app/context/MapContext";
 import { useRemoveInfoWindowPointer } from "@/app/hooks/useRemoveInfoWindowPointer";
@@ -11,11 +10,6 @@ import { Markers } from "./Markers";
 import Card from "../ui/Card";
 
 export default function MapView() {
-  const [center, setCenter] = useState<google.maps.LatLngLiteral>({
-    lat: 47.674,
-    lng: -122.1215,
-  });
-
   useRemoveInfoWindowPointer();
 
   const {
@@ -34,7 +28,6 @@ export default function MapView() {
       lng: mapCenter.lng(),
     };
 
-    setCenter(latLng);
     setEffectiveCenter(latLng);
   };
 
@@ -46,7 +39,10 @@ export default function MapView() {
     <div className="relative z-0 h-full w-full">
       <APIProvider apiKey={process.env.NEXT_PUBLIC_API_KEY!}>
         <Map
-          defaultCenter={center}
+          defaultCenter={{
+            lat: 47.674,
+            lng: -122.1215,
+          }}
           zoom={12}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID!}
           onIdle={handleIdle}
