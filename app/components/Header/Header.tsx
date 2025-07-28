@@ -50,8 +50,6 @@ export default function Header() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setUserInput(value);
-
-    console.log(value);
     throttledUpdate(value);
   };
 
