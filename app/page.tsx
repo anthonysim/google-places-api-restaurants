@@ -37,10 +37,10 @@ export default function Home() {
   // Desktop
   return (
     <div className="flex h-screen overflow-hidden">
-      <div className="flex justify-center overflow-y-auto bg-gray-100 md:w-1/4">
+      <div className="flex justify-center overflow-y-auto bg-gray-100 md:w-[650px]">
         <Cards />
       </div>
-      <div className="md:w-3/4">
+      <div className="md:w-full">
         <MapView />
       </div>
     </div>

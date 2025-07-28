@@ -22,7 +22,7 @@ export default function Cards() {
   if (!placesResults.length) return null;
 
   const cardStyles =
-    "w-full max-w-[432px] border-2 shadow-[0px_8px_16px_-1px_#42526E33]";
+    "max-w-[350px] md:max-w-[432px] border-2 shadow-[0px_8px_16px_-1px_#42526E33]";
 
   return (
     <div className="flex max-h-screen flex-col items-center space-y-4 overflow-y-auto p-4">
