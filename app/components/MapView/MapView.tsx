@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { useMapContext } from "@/app/context/MapContext";
 import { useRemoveInfoWindowPointer } from "@/app/hooks/useRemoveInfoWindowPointer";
+import { getImageUrl } from "@/app/utils/getImageUrl";
 
 import { Markers } from "./Markers";
 import Card from "../ui/Card";
@@ -80,11 +81,9 @@ export default function MapView() {
                         "No address available"
                       }
                       rating={Number(selectedPlace.rating)}
-                      imageUrl={
-                        selectedPlace.photos?.[0]?.photo_reference
-                          ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${selectedPlace.photos?.[0].photo_reference}&key=${process.env.NEXT_PUBLIC_API_KEY}`
-                          : "/placeholder-image.svg"
-                      }
+                      imageUrl={getImageUrl(
+                        selectedPlace.photos?.[0]?.photo_reference,
+                      )}
                     />
                   </div>
                 </InfoWindow>
