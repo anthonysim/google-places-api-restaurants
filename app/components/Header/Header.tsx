@@ -2,7 +2,7 @@
 
 import throttle from "lodash/throttle";
 import Image from "next/image";
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { useMapContext } from "@/app/context/MapContext";
 import { fetchRestaurants } from "@/app/utils/fetchRestaurants";
@@ -15,11 +15,10 @@ export default function Header() {
 
   const throttledUpdate = useMemo(() => {
     return throttle(
-      (value: string) => {
-        if (value === "") return;
+      (query: string) => {
         if (effectiveCenter?.lat && effectiveCenter?.lng) {
           const request = {
-            query: value,
+            query: query.trim() || "restaurant",
             lat: effectiveCenter.lat,
             lng: effectiveCenter.lng,
           };
@@ -33,6 +32,19 @@ export default function Header() {
       1250,
       { leading: false, trailing: true },
     );
+  }, [effectiveCenter?.lat, effectiveCenter?.lng, setPlacesResults]);
+
+  useEffect(() => {
+    if (!effectiveCenter?.lat || !effectiveCenter?.lng) return;
+
+    (async () => {
+      const res = await fetchRestaurants({
+        query: "restaurant",
+        lat: effectiveCenter.lat,
+        lng: effectiveCenter.lng,
+      });
+      setPlacesResults(res);
+    })();
   }, [effectiveCenter?.lat, effectiveCenter?.lng, setPlacesResults]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
