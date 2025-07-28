@@ -1,12 +1,19 @@
+import { Dispatch, SetStateAction } from "react";
+
 import { IPlaceResult } from "../types/types";
 
 export type MapContextType = {
   effectiveCenter: google.maps.LatLngLiteral | null;
-  setEffectiveCenter: (center: google.maps.LatLngLiteral) => void;
+  setEffectiveCenter: Dispatch<
+    SetStateAction<google.maps.LatLngLiteral | null>
+  >;
 
   isShowMapButton: boolean;
-  setIsShowMapButton: (show: boolean) => void;
+  setIsShowMapButton: Dispatch<SetStateAction<boolean>>;
 
   placesResults: IPlaceResult[];
-  setPlacesResults: (places: IPlaceResult[]) => void;
+  setPlacesResults: Dispatch<SetStateAction<IPlaceResult[]>>;
+
+  selectedPlaceId: string | null;
+  setSelectedPlaceId: Dispatch<SetStateAction<string | null>>;
 };

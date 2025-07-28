@@ -11,6 +11,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const [placesResults, setPlacesResults] = useState<
     google.maps.places.PlaceResult[]
   >([]);
+  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
 
   return (
     <MapContext.Provider
@@ -21,6 +22,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
         setIsShowMapButton,
         placesResults,
         setPlacesResults,
+        selectedPlaceId,
+        setSelectedPlaceId,
       }}
     >
       {children}

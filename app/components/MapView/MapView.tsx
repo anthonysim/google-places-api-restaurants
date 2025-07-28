@@ -16,11 +16,14 @@ export default function MapView() {
     lng: -122.1215,
   });
 
-  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
-
   useRemoveInfoWindowPointer();
 
-  const { setEffectiveCenter, placesResults } = useMapContext();
+  const {
+    selectedPlaceId,
+    setSelectedPlaceId,
+    setEffectiveCenter,
+    placesResults,
+  } = useMapContext();
 
   const handleIdle = (event: { map: google.maps.Map }) => {
     const mapCenter = event.map.getCenter();
@@ -66,13 +69,14 @@ export default function MapView() {
 
               return (
                 <InfoWindow
+                  className="border-transparent"
                   position={{
                     lat: lat + 0.01,
                     lng: lng,
                   }}
                   onCloseClick={() => setSelectedPlaceId(null)}
                 >
-                  <div>
+                  <div className="border-transparent">
                     <Card
                       title={selectedPlace.name || "Unknown"}
                       placeId={selectedPlace.place_id || selectedPlace.name}

@@ -21,7 +21,7 @@ export default function Card({
   type = "button",
 }: ICardProps) {
   const baseStyles =
-    "w-[432px] h-auto bg-white rounded-[16px]  p-4 text-left cursor-pointer";
+    "w-[432px] h-auto bg-white rounded-[16px] p-4 text-left cursor-pointer";
 
   const [bookmarked, setBookmarked] = useState(false);
 
