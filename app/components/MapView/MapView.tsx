@@ -43,10 +43,10 @@ export default function MapView() {
             lat: 47.674,
             lng: -122.1215,
           }}
-          zoom={12}
+          defaultZoom={12}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID!}
           onIdle={handleIdle}
-          gestureHandling="greedy"
+          gestureHandling="auto"
           scrollwheel={true}
           disableDefaultUI={false}
           style={{ width: "100%", height: "100%" }}
