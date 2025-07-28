@@ -50,6 +50,7 @@ export default function MapView() {
           scrollwheel={true}
           disableDefaultUI={false}
           style={{ width: "100%", height: "100%" }}
+          onClick={() => setSelectedPlaceId(null)}
         >
           {/* Markers for places */}
           {<Markers places={placesResults} onClick={setSelectedPlaceId} />}
