@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   if (!lat || !lng || !query) {
     return NextResponse.json(
       { error: "Missing lat/lng/query" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -15,8 +15,8 @@ export async function POST(req: NextRequest) {
   const radius = 20;
 
   const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
-    query
-  )}&location=${lat},${lng}&radius=${radius}&key=${apiKey}`;
+    query,
+  )}&location=${lat},${lng}&radius=${radius}&type=restaurant&key=${apiKey}`;
 
   const res = await fetch(url);
   const data = await res.json();
