@@ -8,6 +8,12 @@
 
 - Demo video click [here](https://www.loom.com/share/ca1e6c54a6554416ad17c56076a30b67?sid=8b1d4dcd-06ad-4442-8355-546b0551f75f).
 
+### Images
+
+![App Screenshot](./public/readme/desktop.png)
+![App Screenshot](./public/readme/mobile-map.png)
+![App Screenshot](./public/readme/mobile-list.png)
+
 ### Requirements
 
 1. The web app will use the Google Places API for its data source.
