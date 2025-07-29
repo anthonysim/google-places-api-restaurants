@@ -10,9 +10,11 @@
 
 ### Images
 
-![App Screenshot](./public/readme/desktop.png)
-![App Screenshot](./public/readme/mobile-map.png)
-![App Screenshot](./public/readme/mobile-list.png)
+<img src="./public/readme/desktop.png" alt="desktop map" width="350"/>
+
+<img src="./public/readme/mobile-map.png" alt="desktop map" width="300"/>
+
+<img src="./public/readme/mobile-list.png" alt="desktop map" width="300"/>
 
 ### Requirements
 
