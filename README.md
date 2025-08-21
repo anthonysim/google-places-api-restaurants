@@ -1,4 +1,4 @@
-# AllTrails Take Home
+# Google Places API Restaurants
 
 ### Figma
 
